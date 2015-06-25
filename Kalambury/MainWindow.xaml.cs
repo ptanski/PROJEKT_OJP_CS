@@ -30,6 +30,7 @@ namespace Kalambury
         bool canDraw;
         bool connected;
         byte id;
+        int startingport = 61400;
         int port = 61400;
         double pX, pY, cX, cY;
         SolidColorBrush userBrush;
@@ -63,6 +64,7 @@ namespace Kalambury
             drawingBox.MouseLeftButtonUp += drawingBox_MouseLeftButtonUp;
 
             chooseColor.Click += chooseColor_Click;
+            chooseBackgroundColor.Click += chooseBackgroundColor_Click;
 
             Random random = new Random();
 
@@ -169,7 +171,6 @@ namespace Kalambury
                 connectButton.IsEnabled = false;
                 disconnectButton.IsEnabled = true;
                 var message = "connect";
-                this.connected = true;
                 udpClient.Connect(addressField.Text, 10101);
                 udpClient.Send(Encoding.ASCII.GetBytes(message), message.Length);
                 IPEndPoint remoteIpEndPoint = new IPEndPoint(IPAddress.Any, 10102);
@@ -178,9 +179,10 @@ namespace Kalambury
                 if( recv[0] == 0 )
                 {
                     id = recv[1];
-                    port += id;
+                    port = startingport + id;
                 }
 
+                this.connected = true;
                 sendDrawingHere = new UdpClient(addressField.Text, port);
                 sendDrawingHere.Connect(addressField.Text, port);
                 drawer.WorkerReportsProgress = true;

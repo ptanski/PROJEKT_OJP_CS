@@ -32,7 +32,7 @@ namespace KalamburySerwer
             client.id = id;
             while( true )
             {
-                IPEndPoint remoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+                IPEndPoint remoteIpEndPoint = new IPEndPoint(IPAddress.Any, startingPort + id);
                 byte[] buffer = udpClientt.Receive(ref remoteIpEndPoint);
                 if (buffer[0] == 0) // info o kolorze
                 {

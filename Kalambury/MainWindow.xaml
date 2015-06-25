@@ -5,6 +5,7 @@
     <Grid>
         <Canvas Name="drawingBox" HorizontalAlignment="Left" Height="440" Margin="10,10,0,0" VerticalAlignment="Top" Width="440"/>
         <Button Name="chooseColor" Content="Kolor pedzla" HorizontalAlignment="Left" Margin="455,414,0,0" VerticalAlignment="Top" Width="130" Height="36"/>
+        <Button Name="chooseBackgroundColor" Content="Kolor tła" HorizontalAlignment="Left" Margin="595,414,0,0" VerticalAlignment="Top" Width="130" Height="36"/>
         <Canvas Name="chosenColor" HorizontalAlignment="Left" Height="8" Margin="0,455,0,0" VerticalAlignment="Top" Width="744"/>
         <TextBox Name="addressField" HorizontalAlignment="Left" Height="23" Margin="570,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Text="127.0.0.1"/>
         <Label Content="Adres IP Serwera" HorizontalAlignment="Left" Margin="455,10,0,0" VerticalAlignment="Top" Width="110"/>
